@@ -1,6 +1,3 @@
-
-
-
 # This is the main crux of the merge sort algorithm 
 #     Given a start and an end. The merge will attempt to
 #     merge the two sides while maintaining ascention order
@@ -30,9 +27,8 @@ def merge(arr,L,R):
         
         
         
-
-    """Function used to break down the array into small chunks
-    """
+# Function used to break down the array into small chunks
+    
 def mergeSort(arr):
     if len(arr)>1:
         middle=int(len(arr)//2)

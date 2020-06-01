@@ -1,9 +1,8 @@
-
-"""This function will handle the splitting of the data into 3 pieces
-    The base case for the recursion to stop is if the length of the array is less than 3.
-    In normal merge sort since we split by 2 the base case becomes if the array is less than 2.
+# This function will handle the splitting of the data into 3 pieces
+# The base case for the recursion to stop is if the length of the array is less than 3.
+# In normal merge sort since we split by 2 the base case becomes if the array is less than 2.
     
-"""
+
 def three_way_merge_sort(a):
     if(len(a)>1):
         f_third=int(len(a)//3)
@@ -17,10 +16,10 @@ def three_way_merge_sort(a):
         
         merge(a,L,M,R)
 
-    """The merge function will handle the three way merge. This is more intense than the regualr merge sort
-        due to the introduction of a third list/splice. The logic is as follows: compare the three splices and order
-        them from lowest to highest once one of them runs out you then compare the other two and finally fill in the leftover.
-    """
+# The merge function will handle the three way merge. This is more intense than the regualr merge sort
+# due to the introduction of a third list/splice. The logic is as follows: compare the three splices and order
+# them from lowest to highest once one of them runs out you then compare the other two and finally fill in the leftover.
+    
 def merge(arr,L,M,R):
     i,j,k,l=0,0,0,0
     temp=[0]*(len(L)+len(R)+len(M))
