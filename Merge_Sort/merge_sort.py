@@ -29,11 +29,11 @@ def merge(arr,L,R):
         
 # Function used to break down the array into small chunks
     
-def mergeSort(arr):
+def merge_sort(arr):
     if len(arr)>1:
         middle=int(len(arr)//2)
         L=arr[:middle]
         R=arr[middle:]
-        mergeSort(L)
-        mergeSort(R)
+        merge_sort(L)
+        merge_sort(R)
         merge(arr,L,R)
