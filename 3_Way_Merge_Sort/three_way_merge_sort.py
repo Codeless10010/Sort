@@ -5,15 +5,16 @@
     
 """
 def three_way_merge_sort(a):
-    if(len(a)>2):
+    if(len(a)>1):
         f_third=int(len(a)//3)
-        s_third=f_third*2
+        s_third=(f_third*2)+1
         L=a[:f_third]
-        M=a[f_third+1:s_third]
+        M=a[f_third:s_third]
         R=a[s_third:]
         three_way_merge_sort(L)
         three_way_merge_sort(M)
         three_way_merge_sort(R)
+        
         merge(a,L,M,R)
 
     """The merge function will handle the three way merge. This is more intense than the regualr merge sort
@@ -23,9 +24,8 @@ def three_way_merge_sort(a):
 def merge(arr,L,M,R):
     i,j,k,l=0,0,0,0
     temp=[0]*(len(L)+len(R)+len(M))
-    
     while(i<len(L) and j<len(M) and k<len(R)):
-        if(L[i]<M[j]and L[i]<R[k]):
+        if(L[i]<M[j] and L[i]<R[k]):
             temp[l]=L[i]
             i+=1
             l+=1
@@ -39,7 +39,7 @@ def merge(arr,L,M,R):
             l+=1
     
     #Compare the left over first and second slices
-    while(i<len(L)and j<len(M)):
+    while(i<len(L) and j<len(M)):
         if(L[i]<M[j]):
             temp[l]=L[i]
             i+=1
@@ -47,23 +47,23 @@ def merge(arr,L,M,R):
         else:
             temp[l]=M[j]
             j+=1
+            l+=1
+    
+    #Compare the leftovers from the second and third slices
+    while(j<len(M)and k<len(R)):
+        if(M[j]<R[k]):
+            temp[l]=M[j]
+            j+=1
+            l+=1
+        else:
+            temp[l]=R[k]
             k+=1
-            
+            l+=1 
     #Compare the left over from the first and third slices
     while(i<len(L)and k<len(R)):
         if(L[i]<R[k]):
             temp[l]=L[i]
             i+=1
-            l+=1
-        else:
-            temp[l]=R[k]
-            k+=1
-            l+=1
-    #Compare the leftovers from the first and third slices
-    while(j<len(M)and k<len(R)):
-        if(M[j]<R[k]):
-            temp[l]=M[j]
-            j+=1
             l+=1
         else:
             temp[l]=R[k]
