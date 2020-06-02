@@ -3,6 +3,8 @@ from Selection_Sort.selection_sort import selection_sort
 from Bubble_Sort.bubble_sort import bubble_sort
 from Merge_Sort.merge_sort import merge_sort
 from three_Way_Merge_Sort.three_way_merge_sort import three_way_merge_sort
+from Quick_Sort.quick_sort import quick_sort
+from time import time
 import sys
 
 def selectionSort(arr):
@@ -37,6 +39,18 @@ def threeWayMergeSort(arr):
     print("The Array After Sorting:")
     print(arr)
 
+def quick_sort_main(arr):
+    print("================ Quick Sort ================")
+    print("The Array Before Sorting:")
+    time_start=time()
+    print(arr)
+    quick_sort(arr,0, len(arr))
+    time_took=time()-time_start
+    print("The Array After Sorting:")
+    print(arr)
+    print("The process took: ",time_took)
+
+
 if __name__ == "__main__":
     length=int(sys.argv[2])
     arr=[0]*length
@@ -51,4 +65,6 @@ if __name__ == "__main__":
         mergeSort(arr)
     elif(sys.argv[1]=='-3waymerge'):
         threeWayMergeSort(arr)
+    elif(sys.argv[1]=='-quick'):
+        quick_sort_main(arr)
         
